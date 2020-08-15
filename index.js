@@ -27,7 +27,6 @@ Array.prototype.map.call(checkForms, (form) => {
 });
 
 fileSelector.addEventListener("input", (event) => {
-    console.log("upload event fired!");
     const uploadedImage = event.target.files[0];
     const imagePath = URL.createObjectURL(uploadedImage);
     const imageObject = new Image();
@@ -135,22 +134,18 @@ flexWrapSelect.addEventListener("change", (event) => {
 
 const JCR = getCSSRule(".twofiveoo.sneakattack div > p");
 horizontalPaddingSelect.addEventListener("change", (event) => {
-    console.log("set horizontalPaddingSelect: ", toPx(event.target.value));
     JCR.style["padding-left"] = toPx(event.target.value);
     JCR.style["padding-right"] = toPx(event.target.value);
 });
 verticalPaddingSelect.addEventListener("change", (event) => {
-    console.log("set verticalPaddingSelect: ", toPx(event.target.value));
     JCR.style["padding-bottom"] = toPx(event.target.value);
     JCR.style["padding-top"] = toPx(event.target.value);
 });
 horizontalMarginSelect.addEventListener("change", (event) => {
-    console.log("set horizontalMarginSelect: ", toPx(event.target.value));
     JCR.style["margin-left"] = toPx(event.target.value);
     JCR.style["margin-right"] = toPx(event.target.value);
 });
 verticalMarginSelect.addEventListener("change", (event) => {
-    console.log("set verticalMarginSelect: ", toPx(event.target.value));
     JCR.style["margin-bottom"] = toPx(event.target.value);
     JCR.style["margin-top"] = toPx(event.target.value);
 });
