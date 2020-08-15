@@ -1,4 +1,4 @@
-const MAX_DIMENSION = 800;
+const MAX_DIMENSION = 600;
 
 // Handle file uploads
 const fileSelector = document.getElementById("fileUpload");
@@ -41,7 +41,7 @@ fileSelector.addEventListener("input", (event) => {
         knobsForm.style.display = "flex";
         pitchCards.innerHTML = "";
         canvasDump.classList.add("sneakattack");
-        test()
+        test();
     };
     imageObject.src = imagePath;
 });
@@ -84,11 +84,45 @@ const verticalPaddingSelect = document.getElementById("verticalPadding");
 const horizontalMarginSelect = document.getElementById("horizontalMargin");
 const verticalMarginSelect = document.getElementById("verticalMargin");
 
-const test = () =>  {
+justifyContentSelect.addEventListener("change", (event) => {
+    const jcr = getCSSRule(".twofiveoo.sneakattack div");
+    jcr.style["justify-content"] = event.target.value;
+
+    console.log("set justify-content to: ", event.target.value, jcr.style["justify-content"]);
+
+    jcr.style["justify-content"] = event.target.value;
+
+    debugger;
+});
+
+flexDirectionSelect.addEventListener("change", (event) => {
+    const jcr = getCSSRule(".twofiveoo.sneakattack div");
+    jcr.style["flex-direction"] = event.target.value;
+});
+
+const test = () => {
     console.log(justifyContentSelect.value);
     console.log(flexDirectionSelect.value);
     console.log(horizontalPaddingSelect.value);
     console.log(verticalPaddingSelect.value);
     console.log(horizontalMarginSelect.value);
     console.log(verticalMarginSelect.value);
+};
+
+// https://stackoverflow.com/questions/1409225/changing-a-css-rule-set-from-javascript
+function getCSSRule(ruleName) {
+    ruleName = ruleName.toLowerCase();
+    var result = null;
+    var find = Array.prototype.find;
+
+    find.call(document.styleSheets, (styleSheet) => {
+        result = find.call(styleSheet.cssRules, (cssRule) => {
+            return (
+                cssRule instanceof CSSStyleRule &&
+                cssRule.selectorText.toLowerCase() == ruleName
+            );
+        });
+        return result != null;
+    });
+    return result;
 }
