@@ -1,0 +1,64 @@
+body {
+    font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua,
+        Georgia, serif;
+    font-size: 17px;
+    background-color: rgb(255, 252, 246);
+}
+.backdrop {
+    background-color: rgb(236, 239, 241);
+}
+.page-holder {
+    max-width: 700px;
+}
+
+.page-header {
+    padding: 0.25rem 0.5rem;
+}
+.page-header h1 {
+    font-size: 6rem;
+    margin-bottom: -1.5rem;
+}
+.page-header h5 {
+    color: grey;
+}
+
+.custom-file {
+    max-width: 20rem;
+}
+
+@media (min-width: 768px) {
+    .page-header {
+        padding: 1rem 3rem;
+    }
+    .page-header h1 {
+        font-size: 11rem;
+    }
+    .page-header h5 {
+        font-size: 1.9rem;
+    }
+}
+
+
+
+p.pitch-lead {
+    font-size:1.8rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+}
+
+p.pitch-follow {
+    width:70%;
+}
+
+p.pitch-right {
+    float: right;
+}
+
+.text-right .pitch-lead {
+    justify-content: end;
+}
+
+svg {
+    margin-bottom: .4rem;
+}
