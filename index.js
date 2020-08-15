@@ -14,8 +14,13 @@ fileSelector.addEventListener("input", (event) => {
     const imageObject = new Image();
     const canvas = document.createElement("canvas");
     // Collapse pitch cards
-        fileSelectorForm.innerHTML = '';
-    pitchCards.innerHTML = ''
+    fileSelectorForm.innerHTML = "";
+    pitchCards.innerHTML = `
+<div class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>`;
 
     // Draw image onto canvas once the image finishes loading
     imageObject.onload = function () {
@@ -31,12 +36,12 @@ fileSelector.addEventListener("input", (event) => {
         canvas.getContext("2d").drawImage(imageObject, 0, 0);
 
         canvasDump.innerHTML = create2500xImage(canvas);
-
         canvasDump.style.visibility = "visible";
-        knobsForm.style.visibility = "visible";
-        pitchCards.innerHTML = ""
+
+        knobsForm.style.display = "flex";
+        pitchCards.innerHTML = "";
         canvasDump.classList.add("sneakattack");
-        canvasDump.innerHTML = beautifulImage;
+        test()
     };
     imageObject.src = imagePath;
 });
@@ -69,4 +74,21 @@ function getPixel(imgData, index) {
     var i = index * 4,
         d = imgData.data;
     return [d[i], d[i + 1], d[i + 2], d[i + 3]]; // returns array [R,G,B,A]
+}
+
+// Knobs -----------------------------------------------
+const justifyContentSelect = document.getElementById("justify-content-select");
+const flexDirectionSelect = document.getElementById("flex-direction-select");
+const horizontalPaddingSelect = document.getElementById("horizontalPadding");
+const verticalPaddingSelect = document.getElementById("verticalPadding");
+const horizontalMarginSelect = document.getElementById("horizontalMargin");
+const verticalMarginSelect = document.getElementById("verticalMargin");
+
+const test = () =>  {
+    console.log(justifyContentSelect.value);
+    console.log(flexDirectionSelect.value);
+    console.log(horizontalPaddingSelect.value);
+    console.log(verticalPaddingSelect.value);
+    console.log(horizontalMarginSelect.value);
+    console.log(verticalMarginSelect.value);
 }

@@ -158,7 +158,7 @@
 
                 <div
                     class="d-flex justify-content-center"
-                    style="width: 574px; margin: auto;"
+                    style="max-width: 574px; margin: auto;"
                     id="file-upload-form"
                 >
                     <p class="try-it mb-0">
@@ -225,56 +225,112 @@
                 </div>
 
                 <div
-                    class="d-flex justify-content-center"
-                    style="width: 574px; margin: auto; visibility: hidden;"
+                    class="justify-content-center"
+                    style="max-width: 574px; margin: auto; display: none;"
                     id="image-manipulation-form"
                 >
-                    <p class="try-it mb-0">
-                        Mix it up! &nbsp;
-                    </p>
                     <form name="image-manipulation-form">
                         <div
                             class="container-sm mx-0 d-flex flex-column justify-content-center"
                         >
-                            <select class="custom-select">
-                                <option selected>justify-content-center</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                            <div>
+                                <select
+                                    class="custom-select"
+                                    name="justify-content-select"
+                                    id="justify-content-select"
+                                >
+                                    <option selected
+                                        >justify-content-center</option
+                                    >
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
 
-                            <select class="custom-select">
-                                <option selected>flex-column</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                                <select
+                                    class="custom-select"
+                                    name="flex-direction-select"
+                                    id="flex-direction-select"
+                                >
+                                    <option selected>flex-column</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
 
-                            <label for="customRange3">horizontal padding</label>
-                            <input
-                                type="range"
-                                class="custom-range"
-                                min="0"
-                                max="5"
-                                step="0.5"
-                                id="customRange3"
-                            />
+                            <div>
+                                <label
+                                    for="horizontalPadding"
+                                    name="horizontalPadding"
+                                    >horizontal padding</label
+                                >
+                                <input
+                                    type="range"
+                                    class="custom-range"
+                                    min="0"
+                                    max="5"
+                                    step="0.5"
+                                    id="horizontalPadding"
+                                />
 
-                            <label for="customRange3">vertical padding</label>
-                            <input
-                                type="range"
-                                class="custom-range"
-                                min="0"
-                                max="5"
-                                step="0.5"
-                                id="customRange3"
-                            />
+                                <label
+                                    for="verticalPadding"
+                                    name="verticalPadding"
+                                    >vertical padding</label
+                                >
+                                <input
+                                    type="range"
+                                    class="custom-range"
+                                    min="0"
+                                    max="5"
+                                    step="0.5"
+                                    id="verticalPadding"
+                                />
+
+                                <label
+                                    for="horizontalMargin"
+                                    name="horizontalMargin"
+                                    >horizontal margin</label
+                                >
+                                <input
+                                    type="range"
+                                    class="custom-range"
+                                    min="0"
+                                    max="5"
+                                    step="0.5"
+                                    id="horizontalMargin"
+                                />
+
+                                <label
+                                    for="verticalMargin"
+                                    name="verticalMargin"
+                                    >vertical margin</label
+                                >
+                                <input
+                                    type="range"
+                                    class="custom-range"
+                                    min="0"
+                                    max="5"
+                                    step="0.5"
+                                    id="verticalMargin"
+                                />
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
+        <!-- <hr class="my-4" /> -->
+        <div class="d-flex justify-content-center py-3">
+            <a href="http://www.knoppers.icu">📷</a>&nbsp;·&nbsp;
+            <a href="https://www.chronicpizza.net/" style="color: red;"
+                >chronicpizza</a
+            >&nbsp;·&nbsp;
+            <a href="https://github.com/slin63">github</a>&nbsp;·&nbsp;
+            <a href="https://www.recurse.com/">recurse</a>&nbsp;·&nbsp;
+            <a href="https://twitter.com/woodntshoodnt">twitter</a>
+        </div>
         <script src="index.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
