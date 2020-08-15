@@ -6,6 +6,7 @@ const fileSelectorForm = document.getElementById("file-upload-form");
 const knobsForm = document.getElementById("image-manipulation-form");
 const pitchCards = document.getElementById("pitch-cards");
 const canvasDump = document.getElementById("twofiveoo");
+const headerHr = document.getElementById("header-hr");
 
 fileSelector.addEventListener("input", (event) => {
     console.log("upload event fired!");
@@ -37,6 +38,8 @@ fileSelector.addEventListener("input", (event) => {
 
         canvasDump.innerHTML = create2500xImage(canvas);
         canvasDump.style.visibility = "visible";
+        headerHr.style.display = "none";
+        getCSSRule(".twofiveoo").style.display = "block";
 
         knobsForm.style.display = "flex";
         pitchCards.innerHTML = "";
@@ -91,8 +94,6 @@ justifyContentSelect.addEventListener("change", (event) => {
     console.log("set justify-content to: ", event.target.value, jcr.style["justify-content"]);
 
     jcr.style["justify-content"] = event.target.value;
-
-    debugger;
 });
 
 flexDirectionSelect.addEventListener("change", (event) => {

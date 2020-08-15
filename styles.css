@@ -63,7 +63,7 @@ svg {
 
 /* 2500x image styling */
 .twofiveoo {
-    visibility: hidden;
+    display: none;
 }
 
 .twofiveoo.sneakattack {

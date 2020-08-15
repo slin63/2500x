@@ -26,8 +26,7 @@
                     <div class="page-header">
                         <h1><i>2500x</i></h1>
                         <h5>An image format for the modern web.</h5>
-                        <hr class="my-4" />
-                        <div id="twofiveoo" class="twofiveoo"></div>
+                        <hr class="my-4" id="header-hr" />
                         <div id="pitch-cards">
                             <div class="d-flex flex-column">
                                 <div class="pitch">
@@ -154,183 +153,173 @@
                         </div>
                     </div>
                 </div>
-                <hr class="my-4" />
-
-                <div
-                    class="d-flex justify-content-center"
-                    style="max-width: 574px; margin: auto;"
-                    id="file-upload-form"
-                >
-                    <p class="try-it mb-0">
-                        Try it for yourself. &nbsp;
-                    </p>
-                    <form name="file-upload-form">
-                        <div
-                            class="container-sm mx-0 d-flex flex-column justify-content-center"
-                        >
-                            <div class="form-check">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    value=""
-                                    id="check1"
-                                />
-                                <label class="form-check-label" for="check1">
-                                    I understand that this may cause my browser
-                                    to crash for any images larger than
-                                    100x100px.
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    value=""
-                                    id="check2"
-                                />
-                                <label class="form-check-label" for="check2">
-                                    I understand that use of 2500x is banned in
-                                    several countries.
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    value=""
-                                    id="check3"
-                                />
-                                <label class="form-check-label" for="check3">
-                                    I enjoy pain.
-                                </label>
-                            </div>
-
-                            <div class="custom-file">
-                                <input
-                                    type="file"
-                                    class="custom-file-input"
-                                    id="fileUpload"
-                                    accept=".jpg, .jpeg, .png"
-                                />
-                                <label
-                                    class="custom-file-label"
-                                    for="fileUpload"
-                                    >Upload an image</label
-                                >
-                            </div>
+            </div>
+            <hr class="m-0 pb-4" />
+        </div>
+        <div id="twofiveoo" class="backdrop twofiveoo pb-5"></div>
+        <div class="backdrop pb-4">
+            <hr class="m-0 pt-4 twofiveoo" />
+            <div
+                class="d-flex justify-content-center"
+                style="max-width: 574px; margin: auto;"
+                id="file-upload-form"
+            >
+                <p class="try-it mb-0">
+                    Try it for yourself. &nbsp;
+                </p>
+                <form name="file-upload-form">
+                    <div
+                        class="container-sm mx-0 d-flex flex-column justify-content-center"
+                    >
+                        <div class="form-check">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                value=""
+                                id="check1"
+                            />
+                            <label class="form-check-label" for="check1">
+                                I understand that this may cause my browser to
+                                crash for any images larger than 100x100px.
+                            </label>
                         </div>
-                    </form>
-                </div>
 
-                <div
-                    class="justify-content-center"
-                    style="max-width: 574px; margin: auto; display: none;"
-                    id="image-manipulation-form"
-                >
-                    <form name="image-manipulation-form">
-                        <div
-                            class="container-sm mx-0 d-flex flex-column justify-content-center"
-                        >
-                            <div>
-                                <select
-                                    class="custom-select"
-                                    name="justify-content-select"
-                                    id="justify-content-select"
-                                >
-                                    <option selected value="center"
-                                        >justify-content-center</option
-                                    >
-                                    <option value="space-around"
-                                        >justify-content-around</option
-                                    >
-                                    <option value="space-evenly"
-                                        >justify-content-evenly</option
-                                    >
-                                    <option value="space-between"
-                                        >justify-content-between</option
-                                    >
-                                </select>
-
-                                <select
-                                    class="custom-select"
-                                    name="flex-direction-select"
-                                    id="flex-direction-select"
-                                >
-                                    <option selected value="row"
-                                        >flex-row</option
-                                    >
-                                    <option value="row-reverse"
-                                        >flex-row-reverse</option
-                                    >
-                                    <option value="column">flex-column</option>
-                                    <option value="column-reverse"
-                                        >flex-column-reverse</option
-                                    >
-                                </select>
-                            </div>
-
-                            <div>
-                                <label
-                                    for="horizontalPadding"
-                                    name="horizontalPadding"
-                                    >horizontal padding</label
-                                >
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    min="-5"
-                                    max="5"
-                                    step="1"
-                                    id="horizontalPadding"
-                                />
-
-                                <label
-                                    for="verticalPadding"
-                                    name="verticalPadding"
-                                    >vertical padding</label
-                                >
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    min="-5"
-                                    max="5"
-                                    step="1"
-                                    id="verticalPadding"
-                                />
-
-                                <label
-                                    for="horizontalMargin"
-                                    name="horizontalMargin"
-                                    >horizontal margin</label
-                                >
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    min="-5"
-                                    max="5"
-                                    step="1"
-                                    id="horizontalMargin"
-                                />
-
-                                <label
-                                    for="verticalMargin"
-                                    name="verticalMargin"
-                                    >vertical margin</label
-                                >
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    min="-5"
-                                    max="5"
-                                    step="1"
-                                    id="verticalMargin"
-                                />
-                            </div>
+                        <div class="form-check">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                value=""
+                                id="check2"
+                            />
+                            <label class="form-check-label" for="check2">
+                                I understand that use of 2500x is banned in
+                                several countries.
+                            </label>
                         </div>
-                    </form>
-                </div>
+
+                        <div class="form-check">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                value=""
+                                id="check3"
+                            />
+                            <label class="form-check-label" for="check3">
+                                I enjoy pain.
+                            </label>
+                        </div>
+
+                        <div class="custom-file">
+                            <input
+                                type="file"
+                                class="custom-file-input"
+                                id="fileUpload"
+                                accept=".jpg, .jpeg, .png"
+                            />
+                            <label class="custom-file-label" for="fileUpload"
+                                >Upload an image</label
+                            >
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div
+                class="justify-content-center"
+                style="max-width: 574px; margin: auto; display: none;"
+                id="image-manipulation-form"
+            >
+                <form name="image-manipulation-form">
+                    <div
+                        class="container-sm mx-0 d-flex flex-column justify-content-center"
+                    >
+                        <div>
+                            <select
+                                class="custom-select"
+                                name="justify-content-select"
+                                id="justify-content-select"
+                            >
+                                <option selected value="center"
+                                    >justify-content-center</option
+                                >
+                                <option value="space-around"
+                                    >justify-content-around</option
+                                >
+                                <option value="space-evenly"
+                                    >justify-content-evenly</option
+                                >
+                                <option value="space-between"
+                                    >justify-content-between</option
+                                >
+                            </select>
+
+                            <select
+                                class="custom-select"
+                                name="flex-direction-select"
+                                id="flex-direction-select"
+                            >
+                                <option selected value="row">flex-row</option>
+                                <option value="row-reverse"
+                                    >flex-row-reverse</option
+                                >
+                            </select>
+                        </div>
+
+                        <div>
+                            <label
+                                for="horizontalPadding"
+                                name="horizontalPadding"
+                                >horizontal padding</label
+                            >
+                            <input
+                                type="range"
+                                class="custom-range"
+                                min="-5"
+                                max="5"
+                                step="1"
+                                id="horizontalPadding"
+                            />
+
+                            <label for="verticalPadding" name="verticalPadding"
+                                >vertical padding</label
+                            >
+                            <input
+                                type="range"
+                                class="custom-range"
+                                min="-5"
+                                max="5"
+                                step="1"
+                                id="verticalPadding"
+                            />
+
+                            <label
+                                for="horizontalMargin"
+                                name="horizontalMargin"
+                                >horizontal margin</label
+                            >
+                            <input
+                                type="range"
+                                class="custom-range"
+                                min="-5"
+                                max="5"
+                                step="1"
+                                id="horizontalMargin"
+                            />
+
+                            <label for="verticalMargin" name="verticalMargin"
+                                >vertical margin</label
+                            >
+                            <input
+                                type="range"
+                                class="custom-range"
+                                min="-5"
+                                max="5"
+                                step="1"
+                                id="verticalMargin"
+                            />
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <!-- <hr class="my-4" /> -->
