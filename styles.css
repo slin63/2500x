@@ -87,7 +87,7 @@ svg {
 }
 
 /* 2500x upload form */
-form div div {
+form div * {
     margin:.2rem ;
 }
 
