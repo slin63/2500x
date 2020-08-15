@@ -88,18 +88,40 @@ const horizontalMarginSelect = document.getElementById("horizontalMargin");
 const verticalMarginSelect = document.getElementById("verticalMargin");
 
 justifyContentSelect.addEventListener("change", (event) => {
-    const jcr = getCSSRule(".twofiveoo.sneakattack div");
-    jcr.style["justify-content"] = event.target.value;
-
-    console.log("set justify-content to: ", event.target.value, jcr.style["justify-content"]);
-
-    jcr.style["justify-content"] = event.target.value;
+    getCSSRule(".twofiveoo.sneakattack div").style["justify-content"] =
+        event.target.value;
 });
 
 flexDirectionSelect.addEventListener("change", (event) => {
-    const jcr = getCSSRule(".twofiveoo.sneakattack div");
-    jcr.style["flex-direction"] = event.target.value;
+    getCSSRule(".twofiveoo.sneakattack div").style["flex-direction"] =
+        event.target.value;
 });
+
+const JCR = getCSSRule(".twofiveoo.sneakattack div > p");
+horizontalPaddingSelect.addEventListener("change", (event) => {
+    console.log("set horizontalPaddingSelect: ", toPx(event.target.value));
+    JCR.style["padding-left"] = toPx(event.target.value);
+    JCR.style["padding-right"] = toPx(event.target.value);
+});
+verticalPaddingSelect.addEventListener("change", (event) => {
+    console.log("set verticalPaddingSelect: ", toPx(event.target.value));
+    JCR.style["padding-bottom"] = toPx(event.target.value);
+    JCR.style["padding-top"] = toPx(event.target.value);
+});
+horizontalMarginSelect.addEventListener("change", (event) => {
+    console.log("set horizontalMarginSelect: ", toPx(event.target.value));
+    JCR.style["margin-left"] = toPx(event.target.value);
+    JCR.style["margin-right"] = toPx(event.target.value);
+});
+verticalMarginSelect.addEventListener("change", (event) => {
+    console.log("set verticalMarginSelect: ", toPx(event.target.value));
+    JCR.style["margin-bottom"] = toPx(event.target.value);
+    JCR.style["margin-top"] = toPx(event.target.value);
+});
+
+const toPx = (number) => {
+    return `${number}px`;
+};
 
 const test = () => {
     console.log(justifyContentSelect.value);
