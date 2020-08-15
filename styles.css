@@ -78,6 +78,7 @@ svg {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: nowrap;
 }
 .twofiveoo.sneakattack div > p {
     padding-top: 0;

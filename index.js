@@ -82,6 +82,7 @@ function getPixel(imgData, index) {
 // Knobs -----------------------------------------------
 const justifyContentSelect = document.getElementById("justify-content-select");
 const flexDirectionSelect = document.getElementById("flex-direction-select");
+const flexWrapSelect = document.getElementById("flex-wrap-select");
 const horizontalPaddingSelect = document.getElementById("horizontalPadding");
 const verticalPaddingSelect = document.getElementById("verticalPadding");
 const horizontalMarginSelect = document.getElementById("horizontalMargin");
@@ -94,6 +95,11 @@ justifyContentSelect.addEventListener("change", (event) => {
 
 flexDirectionSelect.addEventListener("change", (event) => {
     getCSSRule(".twofiveoo.sneakattack div").style["flex-direction"] =
+        event.target.value;
+});
+
+flexWrapSelect.addEventListener("change", (event) => {
+    getCSSRule(".twofiveoo.sneakattack div").style["flex-wrap"] =
         event.target.value;
 });
 
