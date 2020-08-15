@@ -11,24 +11,20 @@ const knobsForm = document.getElementById("image-manipulation-form");
 const pitchCards = document.getElementById("pitch-cards");
 const canvasDump = document.getElementById("twofiveoo");
 const headerHr = document.getElementById("header-hr");
+const reportDiv = document.getElementById("report");
 
+// Handle the checkbox disclaimers above the upload image form
 Array.prototype.map.call(checkForms, (form) => {
     form.addEventListener("change", (event) => {
         if (checkHasConsent()) {
             fileSelector.removeAttribute("disabled");
-            fileSelectorLabel.innerHTML = 'Upload an image'
+            fileSelectorLabel.innerHTML = "Upload an image";
         } else {
-            console.log('no longer consented')
             fileSelector.setAttribute("disabled", "true");
-            fileSelectorLabel.innerHTML = 'Sign disclaimer first.'
+            fileSelectorLabel.innerHTML = "Sign disclaimer first.";
         }
     });
 });
-// checkForms.map((form) => {
-//     form.addEventListener("change", (event) => {
-//         console.log(checkHasConsent());
-//     });
-// });
 
 fileSelector.addEventListener("input", (event) => {
     console.log("upload event fired!");
@@ -58,7 +54,21 @@ fileSelector.addEventListener("input", (event) => {
                 : MAX_DIMENSION;
         canvas.getContext("2d").drawImage(imageObject, 0, 0);
 
-        canvasDump.innerHTML = create2500xImage(canvas);
+        const htmlOut = create2500xImage(canvas);
+        canvasDump.innerHTML = htmlOut;
+
+        // Report new file size and dimensions
+        const fileSize = htmlOut.length / 1024.0; /* kb */
+        const fileSizeChange = htmlOut.length / uploadedImage.size; /* kb */
+        const pCount = canvas.height * canvas.width;
+        const divCount = canvas.height;
+
+        const report = `<p><b>${fileSizeChange
+            .toFixed(2)
+            .toLocaleString()}</b> times larger. <b>${pCount.toLocaleString()}</b> <code>&lt;p&gt;</code> tags. <b>Infinitely more powerful.</b></p>`;
+        reportDiv.style.display = "flex";
+        reportDiv.innerHTML = report;
+
         canvasDump.style.visibility = "visible";
         headerHr.style.display = "none";
         getCSSRule(".twofiveoo").style.display = "block";
@@ -66,7 +76,6 @@ fileSelector.addEventListener("input", (event) => {
         knobsForm.style.display = "flex";
         pitchCards.innerHTML = "";
         canvasDump.classList.add("sneakattack");
-        test();
     };
     imageObject.src = imagePath;
 });
@@ -87,7 +96,6 @@ const create2500xImage = (canvas) => {
         htmlOut += `<div>${row}</div>`;
     }
 
-    console.log(`File size: ${htmlOut.length} bytes`);
     return htmlOut;
 };
 
@@ -149,15 +157,6 @@ verticalMarginSelect.addEventListener("change", (event) => {
 
 const toPx = (number) => {
     return `${number}px`;
-};
-
-const test = () => {
-    console.log(justifyContentSelect.value);
-    console.log(flexDirectionSelect.value);
-    console.log(horizontalPaddingSelect.value);
-    console.log(verticalPaddingSelect.value);
-    console.log(horizontalMarginSelect.value);
-    console.log(verticalMarginSelect.value);
 };
 
 // https://stackoverflow.com/questions/1409225/changing-a-css-rule-set-from-javascript

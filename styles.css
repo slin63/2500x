@@ -104,3 +104,12 @@ form div * {
     display: flex;
     align-items: top;
 }
+
+/* 2500x result report */
+#report {
+    display: none;
+}
+
+#report > p > b {
+    font-weight: bold;
+}
