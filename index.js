@@ -1,28 +1,34 @@
+const MAX_DIMENSION = 800;
+
 // Handle file uploads
 const fileSelector = document.getElementById("fileUpload");
 const fileSelectorForm = document.getElementById("file-upload-form");
-const pitchCards = document.getElementById("pitch-cards")
+const pitchCards = document.getElementById("pitch-cards");
 const canvasDump = document.getElementById("twofiveoo");
 
 fileSelector.addEventListener("input", (event) => {
     console.log("upload event fired!");
     const uploadedImage = event.target.files[0];
     const imagePath = URL.createObjectURL(uploadedImage);
-    const imageObject = new Image(100, 100);
+    const imageObject = new Image();
     const canvas = document.createElement("canvas");
 
     // Draw image onto canvas once the image finishes loading
     imageObject.onload = function () {
         // Must set dimensions before drawing object
-        canvas.width = imageObject.width;
-        canvas.height = imageObject.height;
+        canvas.width = imageObject.width < MAX_DIMENSION ? imageObject.width : MAX_DIMENSION;
+        canvas.height = imageObject.height < MAX_DIMENSION ? imageObject.height : MAX_DIMENSION;
         canvas.getContext("2d").drawImage(imageObject, 0, 0);
 
-        const beautifulImage = create2500xImage(canvas);
-        $('.collapse').collapse('toggle')
-        // pitchCards.innerHTML = ''
-        canvasDump.innerHTML = beautifulImage;
+        // Collapse pitch cards
+        $(".collapse").collapse("toggle");
+        fileSelectorForm.style.visibility = "hidden"
+        canvasDump.innerHTML = create2500xImage(canvas);
 
+
+        canvasDump.style.visibility = "visible";
+        canvasDump.classList.add("sneakattack");
+        canvasDump.innerHTML = beautifulImage;
     };
     imageObject.src = imagePath;
 });
@@ -34,11 +40,10 @@ const create2500xImage = (canvas) => {
         .getContext("2d")
         .getImageData(0, 0, canvas.width, canvas.height);
 
-    for (let y = 0; y < canvas.width; y++) {
+    for (let y = 0; y < canvas.height; y++) {
         var row = "";
-        for (let x = 0; x < canvas.height; x++) {
+        for (let x = 0; x < canvas.width; x++) {
             const color = getPixelXY(imageData, x, y);
-            debugger;
             row += `<p style='color:rgb(${color[0]},${color[1]},${color[2]})'>.</p>`;
         }
         htmlOut += `<div>${row}</div>`;

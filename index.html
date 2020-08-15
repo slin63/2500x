@@ -7,9 +7,6 @@
         <meta name="description" content="I am sorry" />
         <meta name="author" content="github.com/slin63" />
 
-        <!-- TODO: remove -->
-        <script type="text/javascript" src="http://livejs.com/live.js"></script>
-
         <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -24,151 +21,204 @@
     </head>
     <body>
         <div class="backdrop">
-            <div class="container page-holder pb-5">
+            <div class="container page-holder pb-4">
                 <div class="container px-0">
                     <div class="page-header">
                         <h1><i>2500x</i></h1>
                         <h5>An image format for the modern web.</h5>
                         <hr class="my-4" />
-                        <div class="collapse show" id="pitch-cards">
-                            <div class="pitch">
-                                <p class="pitch-lead mb-0">
-                                    Portable. &nbsp;
-                                    <svg
-                                        width="1em"
-                                        height="1em"
-                                        viewBox="0 0 16 16"
-                                        class="bi bi-bag-check"
-                                        fill="currentColor"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"
-                                        />
-                                        <path
-                                            d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M10.854 7.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 10.293l2.646-2.647a.5.5 0 0 1 .708 0z"
-                                        />
-                                    </svg>
-                                </p>
-                                <p class="pitch-follow mb-3">
-                                    Built using native HTML and CSS. Viewable on
-                                    <i>any</i> device. No more worrying about
-                                    whether or not a client can view your
-                                    images.
-                                </p>
-                            </div>
-                            <div class="pitch text-right">
-                                <p class="pitch-lead mb-0">
-                                    <svg
-                                        width="1em"
-                                        height="1em"
-                                        viewBox="0 0 16 16"
-                                        class="bi bi-eyeglasses"
-                                        fill="currentColor"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M4 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm8-1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M8 7a1 1 0 0 0-1 1H6a2 2 0 1 1 4 0H9a1 1 0 0 0-1-1zM0 8a.5.5 0 0 1 .5-.5h1v1h-1A.5.5 0 0 1 0 8zm15.5.5h-1v-1h1a.5.5 0 0 1 0 1z"
-                                        />
-                                    </svg>
-                                    &nbsp;Completely lossless.
-                                </p>
-                                <p class="pitch-follow mb-3 pitch-right">
-                                    Converted images retain 100% of their
-                                    original fidelity, creating visuals that
-                                    look great on devices big and small.
-                                </p>
-                            </div>
-                            <div class="pitch">
-                                <p class="pitch-lead mb-0">
-                                    Adjustable. &nbsp;
+                        <div id="twofiveoo" class="twofiveoo"></div>
+                        <div class="collapse show">
+                            <div class="d-flex flex-column">
+                                <div class="pitch">
+                                    <p class="pitch-lead mb-0">
+                                        Portable. &nbsp;
+                                        <svg
+                                            width="1em"
+                                            height="1em"
+                                            viewBox="0 0 16 16"
+                                            class="bi bi-bag-check"
+                                            fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"
+                                            />
+                                            <path
+                                                d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"
+                                            />
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M10.854 7.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 10.293l2.646-2.647a.5.5 0 0 1 .708 0z"
+                                            />
+                                        </svg>
+                                    </p>
+                                    <p class="pitch-follow mb-3">
+                                        Built using native HTML and CSS.
+                                         No binary black magic, just good old <code>div</code>'s and <code>p</code>'s. Understand what an image file looks like just by inspecting its source.
+                                    </p>
+                                </div>
+                                <div class="pitch text-right">
+                                    <p class="pitch-lead mb-0">
+                                        <svg
+                                            width="1em"
+                                            height="1em"
+                                            viewBox="0 0 16 16"
+                                            class="bi bi-eyeglasses"
+                                            fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M4 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm8-1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                                            />
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M8 7a1 1 0 0 0-1 1H6a2 2 0 1 1 4 0H9a1 1 0 0 0-1-1zM0 8a.5.5 0 0 1 .5-.5h1v1h-1A.5.5 0 0 1 0 8zm15.5.5h-1v-1h1a.5.5 0 0 1 0 1z"
+                                            />
+                                        </svg>
+                                        &nbsp;Completely lossless.
+                                    </p>
+                                    <p class="pitch-follow mb-3 pitch-right">
+                                        Converted images retain 100% of their
+                                        original fidelity, looking great on
+                                        devices big and small, if your browser
+                                        does not crash while rendering them.
+                                    </p>
+                                </div>
+                                <div class="pitch">
+                                    <p class="pitch-lead mb-0">
+                                        Adjustable. &nbsp;
 
-                                    <svg
-                                        width="1em"
-                                        height="1em"
-                                        viewBox="0 0 16 16"
-                                        class="bi bi-sliders"
-                                        fill="currentColor"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M14 3.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM11.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM7 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM4.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm9.5 3.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM11.5 15a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M9.5 4H0V3h9.5v1zM16 4h-2.5V3H16v1zM9.5 14H0v-1h9.5v1zm6.5 0h-2.5v-1H16v1zM6.5 9H16V8H6.5v1zM0 9h2.5V8H0v1z"
-                                        />
-                                    </svg>
-                                </p>
-                                <p class="pitch-follow mb-3">
-                                    Modify images and apply simple
-                                    transformations using familiar tools like
-                                    <code>flexbox</code>, <code>margins</code>,
-                                    and <code>padding</code>.
-                                </p>
-                            </div>
-                            <div class="pitch text-right">
-                                <p class="pitch-lead mb-0">
-                                    <svg
-                                        width="1em"
-                                        height="1em"
-                                        viewBox="0 0 16 16"
-                                        class="bi bi-award"
-                                        fill="currentColor"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M9.669.864L8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193l-1.51-.229L8 1.126l-1.355.702-1.51.229-.684 1.365-1.086 1.072L3.614 6l-.25 1.506 1.087 1.072.684 1.365 1.51.229L8 10.874l1.356-.702 1.509-.229.684-1.365 1.086-1.072L12.387 6l.248-1.506-1.086-1.072-.684-1.365z"
-                                        />
-                                        <path
-                                            d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"
-                                        />
-                                    </svg>
-                                    &nbsp;Highly effective.
-                                </p>
-                                <p class="pitch-follow mb-3 pitch-right">
-                                    2500x uses AI and machine learning to
-                                    process images intelligently, creating
-                                    output images with filesizes up to
-                                    <i>2500x </i>larger than the originals.
-                                </p>
+                                        <svg
+                                            width="1em"
+                                            height="1em"
+                                            viewBox="0 0 16 16"
+                                            class="bi bi-sliders"
+                                            fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M14 3.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM11.5 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM7 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM4.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm9.5 3.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM11.5 15a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+                                            />
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M9.5 4H0V3h9.5v1zM16 4h-2.5V3H16v1zM9.5 14H0v-1h9.5v1zm6.5 0h-2.5v-1H16v1zM6.5 9H16V8H6.5v1zM0 9h2.5V8H0v1z"
+                                            />
+                                        </svg>
+                                    </p>
+                                    <p class="pitch-follow mb-3">
+                                        Modify images and apply simple
+                                        transformations using familiar tools
+                                        like
+                                        <code>flexbox</code>,
+                                        <code>margins</code>, and
+                                        <code>padding</code>. Not sure why you'd want this.
+                                    </p>
+                                </div>
+                                <div class="pitch text-right">
+                                    <p class="pitch-lead mb-0">
+                                        <svg
+                                            width="1em"
+                                            height="1em"
+                                            viewBox="0 0 16 16"
+                                            class="bi bi-award"
+                                            fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M9.669.864L8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193l-1.51-.229L8 1.126l-1.355.702-1.51.229-.684 1.365-1.086 1.072L3.614 6l-.25 1.506 1.087 1.072.684 1.365 1.51.229L8 10.874l1.356-.702 1.509-.229.684-1.365 1.086-1.072L12.387 6l.248-1.506-1.086-1.072-.684-1.365z"
+                                            />
+                                            <path
+                                                d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"
+                                            />
+                                        </svg>
+                                        &nbsp;Highly effective.
+                                    </p>
+                                    <p class="pitch-follow mb-3 pitch-right">
+                                        2500x uses AI and machine learning to
+                                        process images intelligently, creating
+                                        output images with filesizes up to
+                                        <i>2500 times </i>larger than the originals.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container d-flex justify-content-center">
-                    <div
-                        class="custom-file container-sm mx-0 d-flex justify-content-center"
-                    >
-                        <form name="file-upload-form" id="file-upload-form">
-                            <input
-                                type="file"
-                                class="custom-file-input"
-                                id="fileUpload"
-                                accept=".jpg, .jpeg, .png"
-                            />
-                            <label class="custom-file-label" for="fileUpload"
-                                >Try it now.</label
-                            >
-                        </form>
-                    </div>
+                <hr class="my-4" />
+
+                <div
+                    class="d-flex justify-content-center"
+                    style="width: 574px; margin: auto;"
+                >
+                    <p class="try-it mb-0">
+                        Try it for yourself. &nbsp;
+                    </p>
+                    <form name="file-upload-form" id="file-upload-form">
+                        <div
+                            class="container-sm mx-0 d-flex flex-column justify-content-center"
+                        >
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value=""
+                                    id="check1"
+                                />
+                                <label class="form-check-label" for="check1">
+                                    I understand that this may cause my browser
+                                    to crash for any images larger than
+                                    100x100px.
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value=""
+                                    id="check2"
+                                />
+                                <label class="form-check-label" for="check2">
+                                    I understand that use of 2500x is banned in
+                                    several countries.
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value=""
+                                    id="check3"
+                                />
+                                <label class="form-check-label" for="check3">
+                                    I enjoy pain.
+                                </label>
+                            </div>
+
+                            <div class="custom-file">
+                                <input
+                                    type="file"
+                                    class="custom-file-input"
+                                    id="fileUpload"
+                                    accept=".jpg, .jpeg, .png"
+                                />
+                                <label
+                                    class="custom-file-label"
+                                    for="fileUpload"
+                                    >Upload an image</label
+                                >
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-
-        <div id="twofiveoo" class="twofiveoo"></div>
 
         <script src="index.js"></script>
         <script
