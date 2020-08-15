@@ -3,6 +3,7 @@ const MAX_DIMENSION = 800;
 // Handle file uploads
 const fileSelector = document.getElementById("fileUpload");
 const fileSelectorForm = document.getElementById("file-upload-form");
+const knobsForm = document.getElementById("image-manipulation-form");
 const pitchCards = document.getElementById("pitch-cards");
 const canvasDump = document.getElementById("twofiveoo");
 
@@ -12,21 +13,28 @@ fileSelector.addEventListener("input", (event) => {
     const imagePath = URL.createObjectURL(uploadedImage);
     const imageObject = new Image();
     const canvas = document.createElement("canvas");
+    // Collapse pitch cards
+        fileSelectorForm.innerHTML = '';
+    pitchCards.innerHTML = ''
 
     // Draw image onto canvas once the image finishes loading
     imageObject.onload = function () {
         // Must set dimensions before drawing object
-        canvas.width = imageObject.width < MAX_DIMENSION ? imageObject.width : MAX_DIMENSION;
-        canvas.height = imageObject.height < MAX_DIMENSION ? imageObject.height : MAX_DIMENSION;
+        canvas.width =
+            imageObject.width < MAX_DIMENSION
+                ? imageObject.width
+                : MAX_DIMENSION;
+        canvas.height =
+            imageObject.height < MAX_DIMENSION
+                ? imageObject.height
+                : MAX_DIMENSION;
         canvas.getContext("2d").drawImage(imageObject, 0, 0);
 
-        // Collapse pitch cards
-        $(".collapse").collapse("toggle");
-        fileSelectorForm.style.visibility = "hidden"
         canvasDump.innerHTML = create2500xImage(canvas);
 
-
         canvasDump.style.visibility = "visible";
+        knobsForm.style.visibility = "visible";
+        pitchCards.innerHTML = ""
         canvasDump.classList.add("sneakattack");
         canvasDump.innerHTML = beautifulImage;
     };
