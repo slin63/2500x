@@ -1,21 +1,28 @@
 // Handle file uploads
 const fileSelector = document.getElementById("fileUpload");
 const fileSelectorForm = document.getElementById("file-upload-form");
-fileSelector.addEventListener("change", (event) => {
+const pitchCards = document.getElementById("pitch-cards")
+const canvasDump = document.getElementById("twofiveoo");
+
+fileSelector.addEventListener("input", (event) => {
+    console.log("upload event fired!");
     const uploadedImage = event.target.files[0];
     const imagePath = URL.createObjectURL(uploadedImage);
-    const imageObject = new Image();
+    const imageObject = new Image(100, 100);
     const canvas = document.createElement("canvas");
 
     // Draw image onto canvas once the image finishes loading
     imageObject.onload = function () {
+        // Must set dimensions before drawing object
+        canvas.width = imageObject.width;
+        canvas.height = imageObject.height;
         canvas.getContext("2d").drawImage(imageObject, 0, 0);
-        document.body.appendChild(imageObject);
-        console.log(uploadedImage);
 
-    canvas.width = imageObject.width;
-    canvas.height = imageObject.height;
-        create2500xImage(canvas);
+        const beautifulImage = create2500xImage(canvas);
+        $('.collapse').collapse('toggle')
+        // pitchCards.innerHTML = ''
+        canvasDump.innerHTML = beautifulImage;
+
     };
     imageObject.src = imagePath;
 });
@@ -31,14 +38,14 @@ const create2500xImage = (canvas) => {
         var row = "";
         for (let x = 0; x < canvas.height; x++) {
             const color = getPixelXY(imageData, x, y);
+            debugger;
             row += `<p style='color:rgb(${color[0]},${color[1]},${color[2]})'>.</p>`;
         }
+        htmlOut += `<div>${row}</div>`;
     }
 
-    htmlOut += `<div>${row}</div>`;
-
-    // console.log(htmlOut.length); /* the file size in bytes */
-    console.log(canvas);
+    console.log(`File size: ${htmlOut.length} bytes`);
+    return htmlOut;
 };
 
 // https://stackoverflow.com/questions/667045/getpixel-from-html-canvas
