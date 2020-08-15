@@ -113,3 +113,7 @@ form div * {
 #report > p > b {
     font-weight: bold;
 }
+
+.links > a {
+    color: black;
+}
