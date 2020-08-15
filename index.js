@@ -3,10 +3,32 @@ const MAX_DIMENSION = 600;
 // Handle file uploads
 const fileSelector = document.getElementById("fileUpload");
 const fileSelectorForm = document.getElementById("file-upload-form");
+const fileSelectorLabel = document.getElementById("custom-file-label");
+const checkForms = document.getElementsByClassName("form-check-input");
+
+// Other junk
 const knobsForm = document.getElementById("image-manipulation-form");
 const pitchCards = document.getElementById("pitch-cards");
 const canvasDump = document.getElementById("twofiveoo");
 const headerHr = document.getElementById("header-hr");
+
+Array.prototype.map.call(checkForms, (form) => {
+    form.addEventListener("change", (event) => {
+        if (checkHasConsent()) {
+            fileSelector.removeAttribute("disabled");
+            fileSelectorLabel.innerHTML = 'Upload an image'
+        } else {
+            console.log('no longer consented')
+            fileSelector.setAttribute("disabled", "true");
+            fileSelectorLabel.innerHTML = 'Sign disclaimer first.'
+        }
+    });
+});
+// checkForms.map((form) => {
+//     form.addEventListener("change", (event) => {
+//         console.log(checkHasConsent());
+//     });
+// });
 
 fileSelector.addEventListener("input", (event) => {
     console.log("upload event fired!");
@@ -155,3 +177,11 @@ function getCSSRule(ruleName) {
     });
     return result;
 }
+
+const checkHasConsent = () => {
+    let hasConsent = true;
+    Array.prototype.map.call(checkForms, (form) => {
+        hasConsent = hasConsent && form.checked;
+    });
+    return hasConsent;
+};
